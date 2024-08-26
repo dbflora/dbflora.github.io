@@ -11,20 +11,19 @@ This Github repository contains a variety of supplementary materials that coinci
 The repository folders contain datasets and programming scripts (R, etc) that pertain to the analytical examples outlined in each of the chapters, with a folder dedicated to each chapter.
 Each folder also contains a concise list of the recommended readings/references as recommended in the chapters throughout the textbook.
 
+Learn by applying, with input and output files for R. Click below to download the associated datasets and files for each chapter.
 
-### <ins> Chapters of Textbook/Associated Analysis - R Files <ins> 
-
-1. Chapter 1/ Foundations, Simple Regression
-2. Chapter 2/ Multiple Regression with Continuous Predictors
-3. Chapter 3/ Regression with Categorical Predictors
-4. Chapter 4/ Interactions in Multiple Regression:  Moderation
-5. Chapter 5/ Regression - Causal Effects & Mediation
-6. Chapter 6/ Logistic Regression
-7. Chapter 7/ Introduction to Multilevel Modeling
-8. Chapter 8/ Exploratory Factor Analysis
-9. Chapter 9/ Structural Equation Modeling I: Path Analysis
-10. Chapter 10/ Structural Equation Modeling II: Latent Variable Models
-11. Chapter 11/ Growth Curve Modeling
+Chapter 1: Foundations, Simple Regression
+Chapter 2: Multiple Regression with Continuous Predictors
+Chapter 3: Regression with Categorical Predictors
+Chapter 4: Interactions in Multiple Regression:  Moderation
+Chapter 5: Regression - Causal Effects & Mediation
+Chapter 6: Logistic Regression
+Chapter 7: Introduction to Multilevel Modeling
+Chapter 8: Exploratory Factor Analysis
+Chapter 9: Structural Equation Modeling I: Path Analysis
+Chapter 10: Structural Equation Modeling II: Latent Variable Models
+Chapter 11: Growth Curve Modeling
 
 ### <ins>  Additional Resources <ins> 
 
