@@ -1,9 +1,4 @@
-# Statistical Methods for the Social and Behavioural Sciences: A Model-Based Approach (2nd edition)
-## - David B. Flora
-
-![image](https://github.com/sperkovic/Flora---Statistical-Methods-for-the-Social-and-Behavioural-Sciences-2ndEdition/assets/119066291/b5688b39-aaa4-4663-90a1-e5b0d2d78f62)
-
-  (Cover of 1st edition)
+# Flora: Statistical Methods for the Social and Behavioural Sciences: A Model-Based Approach (2nd edition)
 
 ### <ins> Outline of Repository/Online Supplemental Materials: <ins> 
 
