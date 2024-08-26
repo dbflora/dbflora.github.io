@@ -20,9 +20,9 @@ Learn by applying, with input and output files for R. Click below to download th
 - Chapter 10: Structural Equation Modeling II: Latent Variable Models
 - Chapter 11: Growth Curve Modeling
 
-### <ins>  Additional Resources <ins> 
+### <ins>  Additional Resources:<ins> 
 
-#### Similar resources can be found at: https://study.sagepub.com/flora
+#### Files and datasets can also be found at: https://study.sagepub.com/flora
 
 #### [To buy the book from Sage Publishing directly, click here](https://study.sagepub.com/researchmethods/statistics/flora-statistical-methods-for-the-social-and-behavioural-sciences)
 
