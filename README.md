@@ -12,19 +12,19 @@ The repository folders contain datasets and programming scripts (R, etc) that pe
 Each folder also contains a concise list of the recommended readings/references as recommended in the chapters throughout the textbook.
 
 
-### <ins> Chapters of Textbook/Repository: <ins> 
+### <ins> Chapters of Textbook/Associated Analysis - R Files <ins> 
 
-1. Foundations of Statistical Modeling Demonstrated with Simple Regression
-2. Multiple Regression with Continuous Predictors
-3. Regression with Categorical Predictors
-4. Interactions in Multiple Regression: Models for Moderation
-5. Using Multiple Regression to Model Mediation and Other Indirect Effects
-6. Introduction to Multilevel Modeling
-7. Basic Matrix Algebra for Statistical Modeling
-8. Exploratory Factor Analysis
-9. Structural Equation Modeling I: Path Analysis
-10. Structural Equation Modeling II: Latent Variable Models
-11. Growth Curve Modeling
+1. Chapter 1/ Foundations, Simple Regression
+2. Chapter 2/ Multiple Regression with Continuous Predictors
+3. Chapter 3/ Regression with Categorical Predictors
+4. Chapter 4/ Interactions in Multiple Regression:  Moderation
+5. Chapter 5/ Regression - Causal Effects & Mediation
+6. Chapter 6/ Logistic Regression
+7. Chapter 7/ Introduction to Multilevel Modeling
+8. Chapter 8/ Exploratory Factor Analysis
+9. Chapter 9/ Structural Equation Modeling I: Path Analysis
+10. Chapter 10/ Structural Equation Modeling II: Latent Variable Models
+11. Chapter 11/ Growth Curve Modeling
 
 ### <ins>  Additional Resources <ins> 
 
