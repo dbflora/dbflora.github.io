@@ -26,9 +26,11 @@ Each folder also contains a concise list of the recommended readings/references 
 10. Structural Equation Modeling II: Latent Variable Models
 11. Growth Curve Modeling
 
-## Additional Resources
-Similar resources can be found at https://study.sagepub.com/flora
+### <ins>  Additional Resources <ins> 
+
+#### Similar resources can be found at https://study.sagepub.com/flora
 
 
-### To buy the book from Sage direct (or to inquire about an inspection copy):
-### To buy from Amazon:
+#### To buy the book from Sage direct (or to inquire about an inspection copy): https://study.sagepub.com/researchmethods/statistics/flora-statistical-methods-for-the-social-and-behavioural-sciences
+
+#### To buy from Amazon: https://www.amazon.ca/Statistical-Methods-Social-Behavioural-Sciences/dp/1446269833/ref=sr_1_1?crid=9R15LWT7I2WB&dib=eyJ2IjoiMSJ9.nb5i6TGYGvhFEU5aIYQPnRUP6WvHNUusgilROpljPOPI-ty_pdQrlgx2IS0JU9ADTaVinxa174JG8VxwL-_8Phw6OtS1PZKVFv_aqpwr2uombRp123BlkEZDXGCoFBo8Im02_Tz39rOH7zeuVsWIr7nIZ4rH0HtR7lgRaLHlg5Y8ug_iEkA62Bl192Bt4Muhw87O2Up_hvh0lpgt8ADQDZb09TVG1o_sACTGetDtACLjPnCrXubtlylCKiI7qsVjfVaZc5eJ-VslmErj8p9YsSOu2gcFofCHLosVMda2K-E.K8q9EPxyoLUtrVoMZz5bwYcOQem-THqmbCjuxW-_b3Q&dib_tag=se&keywords=statistical+methods+for+social+and+behavioural+sciences&qid=1724707973&sprefix=statistical+methods+for+social+and+behavioural+science%2Caps%2C87&sr=8-1
