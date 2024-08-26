@@ -1,6 +1,6 @@
 # Flora: Statistical Methods for the Social and Behavioural Sciences: A Model-Based Approach (2nd edition)
 
-### <ins> Outline of Repository/Online Supplemental Materials: <ins> 
+### <ins> *Outline of Repository/Online Supplemental Materials:* <ins> 
 
 This Github repository contains a variety of supplementary materials that coincide with chapters of the published digital/physical textbook.
 The repository folders contain datasets and programming scripts (R, etc) that pertain to the analytical examples outlined in each of the chapters, with a folder dedicated to each chapter.
