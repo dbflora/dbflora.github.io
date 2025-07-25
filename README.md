@@ -2,15 +2,16 @@
 
 ### *Website Material Coming Soon*
 
-- Chapter 1: Foundations, Simple Regression
-- Chapter 2: Multiple Regression with Continuous Predictors
-- Chapter 3: Regression with Categorical Predictors
-- Chapter 4: Interactions in Multiple Regression:  Moderation
-- Chapter 5: Regression - Causal Effects & Mediation
-- Chapter 6: Logistic Regression
-- Chapter 7: Introduction to Multilevel Modeling
+- Chapter 1: Foundations of Statistical Modelling Demonstrated with Simple Regression
+- Chapter 2: Multiple Regression with Continuous Regressors
+- Chapter 3: Multiple Regression with Categorical Regressors
+- Chapter 4: Interactions in Multiple Regression: Models for Moderation
+- Chapter 5: Using Regression to Model Causal Effects and Mediation
+- Chapter 6: Logistic Regression for Categorical Outcome Variables
+- Chapter 7: Introduction to Multilevel Modelling
 - Chapter 8: Exploratory Factor Analysis
-- Chapter 9: Structural Equation Modeling I: Path Analysis
-- Chapter 10: Structural Equation Modeling II: Latent Variable Models
-- Chapter 11: Growth Curve Modeling
+- Chapter 9: Structural Equation Modelling I: Confirmatory Factor Analysis
+- Chapter 10: Structural Equation Modelling II: Structural Regression Models
+- Chapter 11: Estimating Models with Missing Data
+- Chapter 12: Modelling Longitudinal Data
 
