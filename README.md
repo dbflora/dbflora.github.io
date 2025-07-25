@@ -1,6 +1,5 @@
 # Statistical Modelling Methods: A Guide for the Social and Behavioural Sciences (2nd ed.)
-
-### *Website Material Coming Soon*
+## David B. Flora
 
 - Chapter 1: Foundations of Statistical Modelling Demonstrated with Simple Regression
 - Chapter 2: Multiple Regression with Continuous Regressors
@@ -15,3 +14,4 @@
 - Chapter 11: Estimating Models with Missing Data
 - Chapter 12: Modelling Longitudinal Data
 
+### *Website Material Coming Soon*
