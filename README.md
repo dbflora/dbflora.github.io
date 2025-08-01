@@ -2,8 +2,6 @@
 ## David B. Flora
 
 - Chapter 1: Foundations of Statistical Modelling Demonstrated with Simple Regression
-  * [Markdown File](https://raw.githubusercontent.com/dbflora/dbflora.github.io/refs/heads/main/Chapter%201.%20Foundations%2C%20Simple%20Regression/ch1simpleregression.html)
-  * [Quarto File](https://raw.githubusercontent.com/dbflora/dbflora.github.io/refs/heads/main/Chapter%201.%20Foundations%2C%20Simple%20Regression/ch1test.html)
 - Chapter 2: Multiple Regression with Continuous Regressors
 - Chapter 3: Multiple Regression with Categorical Regressors
 - Chapter 4: Interactions in Multiple Regression: Models for Moderation
