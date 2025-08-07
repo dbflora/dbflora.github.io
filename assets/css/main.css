@@ -2374,13 +2374,13 @@ input, select, textarea {
 	}
 
 		table tbody tr {
-			border: solid 1px #efefef;
+			border: solid 1px #FFFFFF;
 			border-left: 0;
 			border-right: 0;
 		}
 
 			table tbody tr:nth-child(2n + 1) {
-				background-color: #f7f7f7;
+				background-color: #FFFFFF;
 			}
 
 		table td {
