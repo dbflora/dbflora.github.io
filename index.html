@@ -13,7 +13,64 @@
     	
 	</head>
 	<body class="is-preload">
+<style>
+  .chapter-table {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #13294B; /* Navy for text */
+    margin: 40px auto;
+    max-width: 100%;
+  }
 
+  .chapter-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .chapter-table th,
+  .chapter-table td {
+    padding: 14px 20px;
+    text-align: left;
+  }
+
+  .chapter-table th {
+    background-color: #4B9CD3; /* Carolina Blue */
+    color: white;
+    font-size: 16px;
+  }
+
+  .chapter-table tr:nth-child(even) {
+    background-color: #F4F4F4; /* Light Gray */
+  }
+
+  .chapter-table tr:hover {
+    background-color: #E1EEF6; /* Lightened Carolina Blue */
+  }
+
+  .chapter-table td strong {
+    display: block;
+    font-weight: 600;
+    color: #13294B; /* Navy Blue */
+  }
+
+  .chapter-table .button-link {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 14px;
+    color: white;
+    background-color: #4B9CD3; /* Carolina Blue */
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .chapter-table .button-link:hover {
+    background-color: #357EAC; /* Darker Carolina Blue */
+  }
+</style>
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
@@ -47,7 +104,8 @@
     <li>Chapter 11: Estimating Models with Missing Data</li>
     <li>Chapter 12: Modelling Longitudinal Data</li>
   </ul> -->
-<table>
+<div class="chapter-table">
+	<table>
    <!-- <thead>
       <tr>
         <th>Chapter</th>
@@ -78,6 +136,7 @@
       <!-- Repeat for the remaining chapters -->
     </tbody>
   </table>
+	</div>
 						</body>
 						<p> Website Material Coming Soon. </p>
 						<!-- <ul class="actions">
@@ -510,6 +569,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	</body>
 
 </html>
+
 
 
 
