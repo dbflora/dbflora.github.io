@@ -1765,16 +1765,17 @@ input, select, textarea {
 	}
 
 	header p {
-		color: #b2b2b2;
-		position: relative;
-		margin: -1em 0 1.5em 0;
-	}
+    color: #b2b2b2;
+    position: relative;
+    margin: -2em 0 1.5em 0; /* increased negative margin to raise it higher */
+}
 
-	header h2 + p {
-		font-size: 1.25em;
-		margin-top: -1em;
-		line-height: 1.5em;
-	}
+header h2 + p {
+    font-size: 1.25em;
+    margin-top: -0.5em; /* closer to first header */
+    line-height: 1.5em;
+    color: #c9c9c9; /* lighter shade of the same grey */
+}
 
 	header h3 + p {
 		font-size: 1.1em;
