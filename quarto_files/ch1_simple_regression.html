@@ -2405,10 +2405,11 @@ vertical-align: -.125em;
 <p>We can visualize the relationship between review and profit with a scatterplot:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a scatterplot of y ~ x with x- and y-axis labels.</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(movie<span class="sc">$</span>profit <span class="sc">~</span> movie<span class="sc">$</span>score, <span class="at">xlab=</span><span class="st">&quot;review (% of positive reviews)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;profit (millions $US)&quot;</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Specify axis range and ticks.</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side=</span><span class="dv">1</span>,<span class="at">at=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(movie<span class="sc">$</span>profit <span class="sc">~</span> movie<span class="sc">$</span>score, <span class="at">xlab=</span><span class="st">&quot;review (% of positive reviews)&quot;</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;profit (millions $US)&quot;</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Specify axis range and ticks.</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side=</span><span class="dv">1</span>,<span class="at">at=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2551,7 +2552,8 @@ score         0.4692617  0.938883</code></pre>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Create scatterplot of relationship between year (dummy coded) and profit,</span></span>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">#including a regression line to scatterplot with &quot;add = &quot;reg.line&quot;&quot; argument.</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(newer, <span class="at">y=</span><span class="st">&quot;profit&quot;</span>, <span class="at">x=</span><span class="st">&quot;dum1&quot;</span>, <span class="at">add =</span> <span class="st">&quot;reg.line&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape=</span><span class="dv">1</span>, <span class="at">xlab =</span> <span class="st">&quot;year (0 = 2008; 1 = 2009)&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(newer, <span class="at">y=</span><span class="st">&quot;profit&quot;</span>, <span class="at">x=</span><span class="st">&quot;dum1&quot;</span>, <span class="at">add =</span> <span class="st">&quot;reg.line&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape=</span><span class="dv">1</span>,</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;year (0 = 2008; 1 = 2009)&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2610,9 +2612,9 @@ score         0.4692617  0.938883</code></pre>
 <p>To assess homoscedasticity we can plot the reviews and against the model residuals and examine the spread of the data.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a scatterplot of the relationship between model residuals and movie reviews. </span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot</span>(<span class="fu">resid</span>(movieMod) <span class="sc">~</span> score, <span class="at">boxplot=</span>F, <span class="at">smooth=</span><span class="fu">list</span>(<span class="at">var=</span>T, <span class="at">span=</span>.<span class="dv">2</span>, <span class="at">style=</span><span class="st">&quot;lines&quot;</span>, <span class="at">lty.smooth=</span><span class="dv">1</span>), <span class="at">regLine=</span>F, <span class="at">data=</span>movie,</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">grid=</span>F, <span class="at">xlab=</span><span class="st">&quot;review (% of positive reviews)&quot;</span>,</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">ylab=</span><span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot</span>(<span class="fu">resid</span>(movieMod) <span class="sc">~</span> score, <span class="at">boxplot=</span>F, <span class="at">smooth=</span><span class="fu">list</span>(<span class="at">var=</span>T, <span class="at">span=</span>.<span class="dv">2</span>, <span class="at">style=</span><span class="st">&quot;lines&quot;</span>,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">lty.smooth=</span><span class="dv">1</span>), <span class="at">regLine=</span>F, <span class="at">data=</span>movie, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">grid=</span>F,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">xlab=</span><span class="st">&quot;review (% of positive reviews)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
