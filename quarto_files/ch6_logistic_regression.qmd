@@ -1,0 +1,381 @@
+---
+title: "Chapter 6: Logistic Regression for Categorical Outcome Variables"
+subtitle: "Statistical Modelling Methods: A Guide for the Social and Behavioural Sciences (2nd ed.)"
+author: "David Flora & Miranda Too"
+format:
+  html:
+    self-contained: true
+    toc: true
+    toc-float: true
+    theme: flatly
+    highlight: haddock
+    number-sections: false
+    code-overflow: wrap
+---
+
+``` {r include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+# Chapter 6 Textbook Content
+
+## Loading R Packages
+
+```{r}
+library(car)
+library(mediation)
+library(misty)
+library(stats)
+library(ggpubr)
+```
+
+## Importing Data
+
+Many R packages include data that can be used for demonstration or practice. In this example, we will use the `jobs` data from the `mediation` package. To create a data frame object, you simply call the `data()` function.
+
+```{r}
+data("jobs")
+```
+
+For the purposes of our research example, we will make some modifications to the `jobs` data. First, we want to create a binary "work" variable to represent whether the participant was employed at the time of the follow-up interview. We want to recode the values such that 0 = unemployed and 1 = employed.
+
+```{r}
+#Here we are using an ifelse statement to create a new variable. 
+
+#This function call indicates that the new 'work' variable will equal 0 if a case has been recorded as "psyump" (unemployed) in the original 'work1' variable of the jobs data, whereas the new 'work' variable will equal 1 (employed) for all other cases.
+jobs$work <- ifelse(jobs$work1 == "psyump", 0, 1)
+```
+
+Next, we can create a new data frame (`jobdat`) only containing the variables that we need from the original 'jobs' data frame.
+
+```{r}
+jobdat <- jobs[,c("work", "treat", "age", "marital")]
+```
+
+## Research Example
+
+### Descriptive Statistics
+
+#### Table 6.1
+
+When assessing relationships between categorical variables, it is helpful to look at their conditional frequencies. One way to create a conditional frequency table is by using the `crosstab()` function from the `misty` package.
+
+```{r}
+#Conditional frequencies of work status by treatment category
+crosstab(jobdat[, c("treat", "work")], print="row")
+```
+
+```{r}
+#Descriptive stats for age
+descript(jobdat$age, print=c('m','sd','med','min','max','skew','kurt'))
+```
+
+```{r}
+#Frequency table of marital status
+freq(jobdat$marital)
+```
+
+## Binary logistic regression model specification
+
+### Table 6.3 Logistic regression model of work regressed on treat and age
+
+The `glm()` function from the `stats` package can be used to fit logistic regression and other generalized linear models. Like the `lm()` function, a formula representing the model specification is included as the first argument. Following the formula argument, the `family=` argument is used to indicate the error distribution and link function for the model. For a binary logistic regression model, the family is specified as `binomial`.
+
+```{r}
+mod1 <- glm(work ~ treat + age, family=binomial, data=jobdat)
+summary(mod1)
+
+#The output indicates that the treat effect is not significant (p = .065), but the age effect is significant.
+#But as explained in the text, the slope estimates need to be converted to odds ratios for interpretation.
+```
+
+The `coef()` and `confint()` functions from the stats package can be wrapped within the `exp()` function to produce exponentiated coefficients (i.e., odds ratios) and confidence intervals. As discussed in Chapter 6, exponentiating aids interpretation by converting the slope estimates into odds ratios.
+
+```{r}
+#Exponentiated estimates and confidence intervals
+exp(coef(mod1))
+
+#Receiving the treatment multiplies the odds of employment by 1.33.
+#The odds of employment is 96.58% lower for each additional year of age.
+
+exp(confint(mod1))
+
+#Because the treat effect is not significant, the CI for its odds ratio crosses 1.
+```
+
+As mentioned in Chapter 6, it might be preferable to obtain the effect for a 10-year age difference instead of a 1-year age difference. Thus, we can multiply the linear slope estimate for age by 10, then exponentiate the result.
+
+```{r}
+#the linear age estimate is the third coefficient estimate from mod1
+exp(10*mod1$coef[3])
+
+#The odds of employment is 70.667% lower per 10 years of age.
+```
+
+### Likelihood Ratio Test for Comparing Nested Models
+
+When including a categorical variable (a `Factor`-type variable) in a model, R will automatically select a reference category and represent the K categories with k-1 dummy variables (see the Chapter 3 material for further explanation).
+
+In this example, we are adding the `marital` variable, which has 5 categories. There will be 4 dummy variables, and the reference category will be whichever category is currently specified as the first level of the `marital` factor. You can use the `levels()` function to check the levels of a variable and find out what the reference category is:
+
+```{r}
+levels(jobdat$marital) 
+#nevmarr is the reference category
+```
+
+Here, `nevmarr`, or "Never Married", is the reference category because it is listed first. If you want to change your reference category, you can do so using the `relevel()` function in the `stats` package.
+
+```{r}
+#Specify reference category using the ref= argument
+jobdat$marital <- relevel(jobdat$marital, ref= "nevmarr")
+#Here, we're just demonstrating the function, and leaving "nevmarr" as the reference category.
+```
+
+```{r}
+#Fitting an expanded model with the marital status dummy variables
+mod2 <- glm(work ~ treat + age + marital, family=binomial, data=jobdat)
+summary(mod2)
+
+#The output contains a logistic regression slope estimate (and t-test) for each dummy variable. For example:
+#"maritalmarried" compares the "married" category with "nevmarr"
+#Being married doesn't significantly effect the work outcome (p = .6395), holding treat and age constant.
+```
+
+Like other effects in logistic regression, we need to exponentiate the dummy variable slope estimates for interpretation:
+
+```{r}
+exp(coef(mod2))
+
+#The odds of a married person being employed is 1.09 times the odds of a never-married person being employed.
+
+#The odds of a widowed person being employed is 74% of the odds of a never-married person being employed.
+```
+
+```{r}
+#Likelihood ratio test comparing less complex model to more complex model
+anova(mod1, mod2, test = "Chisq")
+
+#Because Model 2 does not fit significantly better than Model 1, conclude that marital status is not significantly related to employment, holding treat and age constant.
+```
+
+### Logistic Regression Model Diagnostics
+
+#### Figure 6.2 Assumption checks
+
+The `residualPlots()` function from the `car` package is handy for creating diagnostic plots for logistic regression as well as basic linear models.
+
+```{r}
+#Plot of Pearson residuals against predicted logists of age using the car package. 
+
+#Here we include all of the terms of the model except for "treat," because it is binary
+#We have also specified that a loess line should be included in the plot
+
+residualPlots(mod1, terms = ~. -treat, smooth=list(smoother=loessLine, span=2/3, col=carPalette()[1]))
+```
+
+The `influenceIndexPlot()` function from the `car` package can create an index plot of the Cook's distance values.
+
+```{r}
+#Cook's distance Index plot. 
+influenceIndexPlot(mod1, vars="Cook")
+```
+
+## Logistic Regression for Outcomes with More than Two Categories
+
+### Research Example
+
+For this research example, we are using data from the World Values Survey of 1995-1997, included in the `carData` package.
+
+#### Importing Data
+
+```{r}
+library(carData)
+data(WVS)
+summary(WVS)
+```
+
+For this example, we won't use the gender variable, so we can remove it as we save the data frame into a new object:
+
+```{r}
+#Removing the 6th column and creating wvsdat data frame
+wvsdat <- WVS[,-6]
+```
+
+```{r}
+#Renaming the poverty variable and specifying that it is a factor (i.e., categorical).
+wvsdat$attitude <- as.factor(wvsdat$poverty)
+```
+
+### Graphs of variable distributions
+
+```{r}
+#Boxplot of distribution of age by attitude
+boxplot(wvsdat$age ~ wvsdat$attitude, horizontal = T)
+
+#Boxplot of distribution of age by attitude and religion. 
+
+#The "facet.by" argument is used to specify the variable used for creating individual plots.
+ggboxplot(wvsdat, y="age", x="attitude", facet.by = "religion", orientation="horizontal",
+          palette = c("#00AFBB", "#E7B800"))
+
+```
+
+### Table 6.4: Multinomial model of attitude regressed on age and religion
+
+
+```{r}
+#make 'about right' the reference category.
+#To use the relevel() function, the attitude variable first needs to be an un-ordered factor:
+wvsdat$attitude2 <- factor(wvsdat$attitude, ordered=F)
+wvsdat$attitude2 <- relevel(wvsdat$attitude2, ref = "About Right")
+```
+
+To estimate a multinomial model, we can use the `multinom()` function in the nnet package. Like the `lm()` and `glm()` functions, it uses the same formula syntax to represent the model parameters.
+
+```{r}
+library(nnet)
+#multinomial model - attitude regressed on religion and age
+mnom1 <- multinom(attitude2 ~ religion+age, data = wvsdat)
+
+summary(mnom1, Wald = T)
+
+#None of this output is particularly interpretable because we will need to exponentiate the coefficient estimates (see below), but the Wald stats are Z-test statistics Wald stats for age are big, Wald stats for religion are small.
+```
+
+We can use the `pnorm()` function to get two-tailed p-values from the Wald Z-statistics:
+
+```{r}
+#getting two-tailed p-values for age using Wald statistics
+pnorm(4.395226, 0, 1, lower.tail = F)*2
+#age is significantly associated with the probability of saying "too little" instead of "about right"
+pnorm(5.419484, 0, 1, lower.tail = F)*2
+#age is significantly associated with the probability of saying "too much" instead of "about right"
+```
+
+```{r}
+#getting two-tailed p-values for religion using Wald statistics
+pnorm(0.4383507, 0, 1, lower.tail = F)*2
+pnorm(0.6629923, 0, 1, lower.tail = F)*2
+
+#the religion effects are not significant.
+```
+
+Like binary logistic regression, we can use the `exp()` function paired with the `coef()` and `confint()` functions to convert slope estimates to odds ratios and get CIs for the odds ratios.
+
+```{r}
+#exponentiating estimates to obtain odds ratios 
+exp(coef(mnom1))
+#The odds of saying "too little" instead of "about right" is 99.22% lower for each additional year of age.
+
+#The odds of saying "too much" instead of "about right" is 1.01323 times greater for each additional year of age.
+
+exp(confint(mnom1))
+
+#Consistent with the Wald tests, the CIs for religion cross 1 (non-significant) whereas the CIs for age do not cross 1 (significant).
+```
+
+The text mentions that the age or religion effects might vary by country. That is, country could moderate those effects. Here, we apply techniques introduced in Chapter 4 to test and probe the interaction between country and religion:
+
+```{r}
+#By default, country (a factor variable) will be dummy coded, with Australia as the reference category
+
+mnom2a <- multinom(attitude2 ~ religion+age+country, data = wvsdat)
+
+#Expanded model with country and its interaction with religion.
+mnom2b <- multinom(attitude2 ~ religion+age+country+(religion*country), data = wvsdat)
+
+#Model comparison with likelihood ratio test
+anova(mnom2a ,mnom2b)
+
+#The likelihood ratio test indicates that country significantly interacts with religion. 
+```
+
+To begin probing the interaction, let's get odds ratios (and their CIs) for the interaction model:
+
+```{r} 
+#Because Australia is the reference category for country, the lower-order effects of religion pertain to Australia:
+exp(coef(mnom2b))
+exp(confint(mnom2b))
+#The CI around the religion odds ratio crosses 1 for the comparison of "too little" with "about right" (CI: 0.97, 1.59)
+#Therefore, among Australian respondents, religion is not significantly associated with the odds of saying "too little" instead of "about right".
+
+#But the CI around the religion odds ratio does NOT cross 1 for the comparison of "too much" with "about right" (CI: 1.159, 2.45)
+#Therefore, among Australian respondents, religion is significantly associated with the odds of saying "too much" instead of "about right".
+#The religion odds ratio for "too much" (1.686) indicates that Australian respondents who are a member of a religion have an odds of responding "too much" instead of "about right" that is 1.686 times greater than the odds for Australian respondents who are not a member of a religion.
+```
+
+To continue probing the interaction, we can change the reference category and re-estimate the model. Here, we change the country reference category to USA so that the lower-order religion effects pertain to the USA:
+
+```{r}
+#Use the relevel() function to change the reference category
+wvsdat$country <- relevel(wvsdat$country, ref= "USA")
+
+#Then re-estimate the interaction model:
+mnom2c <- multinom(attitude2 ~ religion+age+country+(religion*country), data = wvsdat)
+#get odds ratios and their CIs:
+exp(coef(mnom2c))
+exp(confint(mnom2c))
+
+#The CI around the religion odds ratio does not cross 1 for the comparison of "too little" with "about right" (CI: 0.48, 0.92)
+#Therefore, among USA respondents, religion is significantly associated with the odds of saying "too little" instead of "about right".
+#The religion odds ratio for "too much" (0.669) indicates that USA respondents who are a member of a religion have an odds of responding "too little" instead of "about right" that is 66.9% of the odds for USA respondents who are not a member of a religion.
+
+#The CI around the religion odds ratio crosses 1 for the comparison of "too much" with "about right" (CI: 0.834, 1.728).
+#Therefore, among USA respondents, religion is not significantly associated with the odds of saying "too much" instead of "about right".
+```
+
+We could proceed in the same manner to get religion effects for Norway and Sweden (i.e., change the reference category, re-estimate the model, interpret the lower-order religion effects as specific to the refrence category country). Readers are invited to do so on their own.
+
+## Ordinal Logistic Regression
+
+A proportional odds ordinal logistic regression model can be estimated using the `polr()` function in the `MASS` package.
+
+```{r}
+#Notice that we are using the original 'poverty' variable as the outcome.
+#Check that 'poverty' is an ordinal factor, with "too little" as the lowest category:
+str(wvsdat$poverty)
+
+library(MASS)
+#Fit the ordinal regression 
+ordmod <- polr(attitude ~ age + religion, data = wvsdat)
+```
+
+To compare the multinomial model fit to the ordinal logistic model fit, we can obtain the residual deviance values for each model using the `deviance()` function, and save them into objects. We can then subtract the residual deviance of the less complex model (the multinomial model) from the more complex model (the ordinal/proportional odds model) to obtain the likelihood ratio test statistic. We can then use the `pchisq()` function to compare this value against a chi-square distribution with a specified number of degrees of freedom (in this case, it is 2).
+
+```{r}
+#Save residual deviances into respective objects
+mod1.d <- deviance(mnom1) 
+mod2.d <- deviance(ordmod)
+
+#Obtain difference in residual deviance (i.e., likelihood ratio )
+LR <- mod2.d - mod1.d
+
+# printing the likehihood ratio test statistic, reported as chi-square = 7.92 in the text.
+LR 
+
+pchisq(LR, 2, lower.tail = F)
+#Rounds to .02, as presented in the text.
+```
+
+```{r}
+#Additionally, we can obtain the AIC values for each model by using the AIC() function
+AIC(mnom1)
+AIC(ordmod)
+```
+
+### Table 6.5: Ordinal Model Summary
+
+```{r}
+#Model summary 
+summary(ordmod)
+
+#Although the output doesn't include p-values, the t-statistic for age is so large that it's p-value must be p < .001.
+#For religion, the t-stat (-0.9994) is rather weak, but we can get the exact p-value with
+pnorm(0.9994, 0, 1, lower.tail = F)*2
+
+#As with other logistic regression models, the estimates need to be exponentiated (i.e., converted to odds ratios) for interpretation.
+
+exp(coef(ordmod))
+exp(confint(ordmod))
+
+#As reported in the text, the OR for age indicates that a one-year age difference multiplies the odds of a response in a lower category by 1.01 (recall the negative sign in Equation 6.8). 
+```
