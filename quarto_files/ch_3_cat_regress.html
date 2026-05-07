@@ -2211,16 +2211,13 @@ vertical-align: -.125em;
   <li><a href="#chapter-3-textbook-content" id="toc-chapter-3-textbook-content" class="nav-link active" data-scroll-target="#chapter-3-textbook-content">Chapter 3 Textbook Content</a>
   <ul class="collapse">
   <li><a href="#loading-r-packages" id="toc-loading-r-packages" class="nav-link" data-scroll-target="#loading-r-packages">Loading R Packages</a></li>
-  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing data</a></li>
-  <li><a href="#research-example" id="toc-research-example" class="nav-link" data-scroll-target="#research-example">Research Example</a>
+  <li><a href="#research-example" id="toc-research-example" class="nav-link" data-scroll-target="#research-example">Research Example</a></li>
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing data</a>
   <ul class="collapse">
   <li><a href="#table-3.1-descriptive-statistics-of-life-satisfaction-by-marital-status" id="toc-table-3.1-descriptive-statistics-of-life-satisfaction-by-marital-status" class="nav-link" data-scroll-target="#table-3.1-descriptive-statistics-of-life-satisfaction-by-marital-status">Table 3.1: Descriptive statistics of life satisfaction by marital status</a></li>
   <li><a href="#figure-3.1-boxplot-by-outcome-group" id="toc-figure-3.1-boxplot-by-outcome-group" class="nav-link" data-scroll-target="#figure-3.1-boxplot-by-outcome-group">Figure 3.1: Boxplot by Outcome Group</a></li>
   </ul></li>
-  <li><a href="#dummy-variable-regression-and-anova" id="toc-dummy-variable-regression-and-anova" class="nav-link" data-scroll-target="#dummy-variable-regression-and-anova">Dummy-Variable Regression and ANOVA</a>
-  <ul class="collapse">
-  <li><a href="#table-3.3-model-from-equation-3.1-regression-model" id="toc-table-3.3-model-from-equation-3.1-regression-model" class="nav-link" data-scroll-target="#table-3.3-model-from-equation-3.1-regression-model">Table 3.3 &amp; Model from Equation 3.1: Regression Model</a></li>
-  </ul></li>
+  <li><a href="#dummy-variable-regression-and-anova" id="toc-dummy-variable-regression-and-anova" class="nav-link" data-scroll-target="#dummy-variable-regression-and-anova">Dummy-Variable Regression and ANOVA</a></li>
   <li><a href="#the-ancova-model-and-beyond" id="toc-the-ancova-model-and-beyond" class="nav-link" data-scroll-target="#the-ancova-model-and-beyond">The ANCOVA Model and Beyond</a>
   <ul class="collapse">
   <li><a href="#table-3.4" id="toc-table-3.4" class="nav-link" data-scroll-target="#table-3.4">Table 3.4</a></li>
@@ -2231,6 +2228,11 @@ vertical-align: -.125em;
   <li><a href="#figure-3.2-scatterplot-of-studentized-residuals-by-age" id="toc-figure-3.2-scatterplot-of-studentized-residuals-by-age" class="nav-link" data-scroll-target="#figure-3.2-scatterplot-of-studentized-residuals-by-age">Figure 3.2: Scatterplot of Studentized Residuals by Age</a></li>
   <li><a href="#figure-3.3-boxplot-of-studentized-residuals-by-marital-status" id="toc-figure-3.3-boxplot-of-studentized-residuals-by-marital-status" class="nav-link" data-scroll-target="#figure-3.3-boxplot-of-studentized-residuals-by-marital-status">Figure 3.3: Boxplot of Studentized Residuals by Marital Status</a></li>
   <li><a href="#figure-3.4-q-q-plot-of-model" id="toc-figure-3.4-q-q-plot-of-model" class="nav-link" data-scroll-target="#figure-3.4-q-q-plot-of-model">Figure 3.4: Q-Q Plot of Model</a></li>
+  </ul></li>
+  <li><a href="#using-contrast-code-variables" id="toc-using-contrast-code-variables" class="nav-link" data-scroll-target="#using-contrast-code-variables">Using Contrast-Code Variables</a>
+  <ul class="collapse">
+  <li><a href="#creating-helmert-contrasts" id="toc-creating-helmert-contrasts" class="nav-link" data-scroll-target="#creating-helmert-contrasts">Creating Helmert contrasts</a></li>
+  <li><a href="#improved-contrasts" id="toc-improved-contrasts" class="nav-link" data-scroll-target="#improved-contrasts">Improved contrasts</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -2278,43 +2280,54 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
-<section id="importing-data" class="level2">
-<h2 class="anchored" data-anchor-id="importing-data">Importing data</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>married <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;married.txt&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
 <section id="research-example" class="level2">
 <h2 class="anchored" data-anchor-id="research-example">Research Example</h2>
 <p>This artificial data provided by Darlington and Hayes (2017) examines the association between marital status and general life satisfaction.</p>
+</section>
+<section id="importing-data" class="level2">
+<h2 class="anchored" data-anchor-id="importing-data">Importing data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>married <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;married.txt&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(married)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&#39;data.frame&#39;:   36 obs. of  4 variables:
+ $ mstatus: int  3 2 4 4 1 3 2 2 3 1 ...
+ $ satis  : int  85 80 72 60 92 88 74 84 88 82 ...
+ $ age    : int  53 63 55 39 65 74 57 59 58 51 ...
+ $ gender : int  0 1 0 0 1 1 0 0 0 0 ...</code></pre>
+</div>
+</div>
 <p>The marriage variable <code>mstatus</code> is coded into four categories: 1 = married, 2 = divorced, 3 = single, and 4 = widowed. Life satisfaction, <code>satis</code>, is a continuous variable with possible scores ranging from 0 to 100.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Replacing numerical codes with category labels</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>married<span class="sc">$</span>mstatus <span class="ot">&lt;-</span> <span class="fu">factor</span>(married<span class="sc">$</span>mstatus, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&#39;married&#39;</span>,<span class="st">&#39;divorced&#39;</span>,<span class="st">&#39;single&#39;</span>,<span class="st">&#39;widowed&#39;</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(married<span class="sc">$</span>mstatus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Factor w/ 4 levels &quot;married&quot;,&quot;divorced&quot;,..: 3 2 4 4 1 3 2 2 3 1 ...</code></pre>
+</div>
+</div>
 <section id="table-3.1-descriptive-statistics-of-life-satisfaction-by-marital-status" class="level3">
 <h3 class="anchored" data-anchor-id="table-3.1-descriptive-statistics-of-life-satisfaction-by-marital-status">Table 3.1: Descriptive statistics of life satisfaction by marital status</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Life satisfaction descriptive statistics by marital status group </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#1 = married, 2 = divorced, 3 = single, and 4 = widowed</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">descript</span>(married<span class="sc">$</span>satis, <span class="at">group =</span> married<span class="sc">$</span>mstatus, <span class="at">print =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&#39;sd&#39;</span>,<span class="st">&#39;med&#39;</span>,<span class="st">&#39;skew&#39;</span>,<span class="st">&#39;kurt&#39;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Life satisfaction descriptive statistics by marital status group </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">descript</span>(married<span class="sc">$</span>satis, <span class="at">group =</span> married<span class="sc">$</span>mstatus, <span class="at">print =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;m&quot;</span>,<span class="st">&#39;sd&#39;</span>,<span class="st">&#39;med&#39;</span>,<span class="st">&#39;skew&#39;</span>,<span class="st">&#39;kurt&#39;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Descriptive Statistics
 
-  Group  n     M   SD   Med  Skew  Kurt
-   1    10 83.80 6.23 83.00  0.17 -1.30
-   2     9 81.44 4.82 84.00 -0.97 -0.71
-   3     9 78.89 6.25 76.00  0.64 -1.32
-   4     8 77.38 8.57 79.00 -0.93  0.22</code></pre>
+  Group      n     M   SD   Med  Skew  Kurt
+   married  10 83.80 6.23 83.00  0.17 -1.30
+   divorced  9 81.44 4.82 84.00 -0.97 -0.71
+   single    9 78.89 6.25 76.00  0.64 -1.32
+   widowed   8 77.38 8.57 79.00 -0.93  0.22</code></pre>
 </div>
 </div>
 </section>
 <section id="figure-3.1-boxplot-by-outcome-group" class="level3">
 <h3 class="anchored" data-anchor-id="figure-3.1-boxplot-by-outcome-group">Figure 3.1: Boxplot by Outcome Group</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Replacing codes with category labels</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>married<span class="sc">$</span>mstatus <span class="ot">&lt;-</span> <span class="fu">factor</span>(married<span class="sc">$</span>mstatus, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&#39;married&#39;</span>,<span class="st">&#39;divorced&#39;</span>,<span class="st">&#39;single&#39;</span>,<span class="st">&#39;widowed&#39;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>Grouped boxplots can be created using the <code>boxplot()</code> function. Instead of using a single vector, a formula in the <code>y ~ x</code> form can be used, where <code>x</code> is a numeric variable, and <code>y</code> is a categorical variable.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(married<span class="sc">$</span>satis<span class="sc">~</span>married<span class="sc">$</span>mstatus, <span class="at">ylab=</span><span class="st">&#39;Life satisfaction score&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;Marital status&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(married<span class="sc">$</span>satis<span class="sc">~</span>married<span class="sc">$</span>mstatus, <span class="at">ylab=</span><span class="st">&#39;Life satisfaction score&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;Marital status&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2327,12 +2340,70 @@ vertical-align: -.125em;
 </section>
 <section id="dummy-variable-regression-and-anova" class="level2">
 <h2 class="anchored" data-anchor-id="dummy-variable-regression-and-anova">Dummy-Variable Regression and ANOVA</h2>
-<section id="table-3.3-model-from-equation-3.1-regression-model" class="level3">
-<h3 class="anchored" data-anchor-id="table-3.3-model-from-equation-3.1-regression-model">Table 3.3 &amp; Model from Equation 3.1: Regression Model</h3>
+<p>First, we can create dummy variables in accordance with Table 3.2:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Life Satisfaction regressed on Marital Status</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>anovaMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> mstatus, <span class="at">data=</span>married)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This code creates dummy variables d1, d2, and d3, and puts them in the &#39;married&#39; data frame.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>married<span class="sc">$</span>d1 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(married<span class="sc">$</span>mstatus<span class="sc">==</span><span class="st">&quot;divorced&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#If mstatus is divorced, then d1 = 1, else d1 = 0</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>married<span class="sc">$</span>d2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(married<span class="sc">$</span>mstatus<span class="sc">==</span><span class="st">&quot;single&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#If mstatus is divorced, then d2 = 1, else d2 = 0</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>married<span class="sc">$</span>d3 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(married<span class="sc">$</span>mstatus<span class="sc">==</span><span class="st">&quot;widowed&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#If mstatus is widowed, then d3 = 1, else d3 = 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then, we can use the dummy variables to represent the nominal marital status variable and fit the model represented in Equation 3.1 to obtain the results in Table 3.3:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Life Satisfaction regressed on marital status</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dummyMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> d1<span class="sc">+</span>d2<span class="sc">+</span>d3, <span class="at">data=</span>married)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dummyMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = satis ~ d1 + d2 + d3, data = married)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.3750  -3.8889   0.3778   3.7167   9.6250 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   83.800      2.064  40.610   &lt;2e-16 ***
+d1            -2.356      2.998  -0.786    0.438    
+d2            -4.911      2.998  -1.638    0.111    
+d3            -6.425      3.095  -2.076    0.046 *  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 6.525 on 32 degrees of freedom
+Multiple R-squared:  0.1381,    Adjusted R-squared:  0.05728 
+F-statistic: 1.709 on 3 and 32 DF,  p-value: 0.1849</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Notice that the results match the values reported in Table 3.3.</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Get confidence intervals too</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(dummyMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+(Intercept)  79.596764 88.0032363
+d1           -8.462716  3.7516052
+d2          -11.018272  1.1960497
+d3          -12.729854 -0.1201455</code></pre>
+</div>
+</div>
+<p>Instead of literally creating dummy variables and then using them in the regression model, we can simply refer to the original, factor-type, multi-category variable (<code>mstatus</code>) in the model formula, and the ‘lm()’ function will automatically (by default) treat the factor-variable as a set of dummy variables to fit the model, as shown next:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You can use the `levels()` function to check the levels of a variable and find out what the reference category is:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(married<span class="sc">$</span>mstatus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;married&quot;  &quot;divorced&quot; &quot;single&quot;   &quot;widowed&quot; </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The first listed category (&quot;married&quot;) will be the reference category.</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Life Satisfaction regressed on marital status</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>anovaMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> mstatus, <span class="at">data=</span>married)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2355,8 +2426,8 @@ Residual standard error: 6.525 on 32 degrees of freedom
 Multiple R-squared:  0.1381,    Adjusted R-squared:  0.05728 
 F-statistic: 1.709 on 3 and 32 DF,  p-value: 0.1849</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Obtain confidence intervals around model parameters</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(anovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Obtain confidence intervals around model parameters</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(anovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     2.5 %     97.5 %
 (Intercept)      79.596764 88.0032363
@@ -2364,18 +2435,20 @@ mstatusdivorced  -8.462716  3.7516052
 mstatussingle   -11.018272  1.1960497
 mstatuswidowed  -12.729854 -0.1201455</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Notice that the estimates and confidence intervals are exactly the same as when the model was fitted to the dummy variables!</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Again, each estimate pertains to the comparison of one category with the reference category.</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#For example, output for &quot;mstatusdivorced&quot; pertains to a comparison of the divorced category with the married (reference) category.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
 </section>
 <section id="the-ancova-model-and-beyond" class="level2">
 <h2 class="anchored" data-anchor-id="the-ancova-model-and-beyond">The ANCOVA Model and Beyond</h2>
 <section id="table-3.4" class="level3">
 <h3 class="anchored" data-anchor-id="table-3.4">Table 3.4</h3>
-<p>To investigate whether satisfaction scores differ between the marital status groups over and above age, we can: (1) fit a model with satisfaction regressed on age, and then (2) fit a model with satisfaction regressed on age and marital status, and then (3) compare the models.</p>
+<p>To investigate whether satisfaction scores significantly differ across marital status groups while holding age constant, we can use a hierarchical regression strategy: (1) fit a model with satisfaction regressed on age, then (2) fit a model with satisfaction regressed on age and marital status, and then (3) use an F-test to determine whether R-squared significantly increased.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) Fit model with satisfaction regressed on age </span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> age, <span class="at">data=</span>married)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) Fit model with satisfaction regressed on age </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> age, <span class="at">data=</span>married)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2396,18 +2469,12 @@ Residual standard error: 5.578 on 34 degrees of freedom
 Multiple R-squared:  0.3309,    Adjusted R-squared:  0.3112 
 F-statistic: 16.81 on 1 and 34 DF,  p-value: 0.0002427</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                 2.5 %     97.5 %
-(Intercept) 35.3869564 65.4829533
-age          0.2766313  0.8203253</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) Fit a model with satisfaction regressed on martial status and age</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ancovaMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> mstatus<span class="sc">+</span>age, <span class="at">data=</span>married)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ancovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#From this output, we mainly just want to note that R^2 = .3309</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) Fit a model with satisfaction regressed on martial status and age</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>ancovaMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> mstatus<span class="sc">+</span>age, <span class="at">data=</span>married)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ancovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2431,20 +2498,12 @@ Residual standard error: 5.493 on 31 degrees of freedom
 Multiple R-squared:  0.4084,    Adjusted R-squared:  0.3321 
 F-statistic: 5.351 on 4 and 31 DF,  p-value: 0.002144</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(ancovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                      2.5 %     97.5 %
-(Intercept)      35.3528329 69.8813477
-mstatusdivorced  -9.0614078  1.3593960
-mstatussingle    -7.2597735  3.5547434
-mstatuswidowed  -10.1275808  0.6561909
-age               0.2537476  0.8539934</code></pre>
-</div>
-</div>
-<p>Recall that since “married” was our reference category, each of the estimates for the marital status categories are in comparison with those who are married (holding age constant in the <code>ancovaMod</code> model.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (3) Compare the models with an F-test using the anova function</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod0, ancovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Recall that since &quot;married&quot; was the reference category, each of the estimates for the marital status categories refers to a comparison with those who are married (holding age constant in the `ancovaMod` model.</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#But at this point, the output of interest is R^2 = .4084 </span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (3) Compare the models with an F-test using the anova function</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod0, ancovaMod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -2454,29 +2513,20 @@ Model 2: satis ~ mstatus + age
 1     34 1057.8                           
 2     31  935.2  3    122.62 1.3549 0.2748</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This F-test tells us that the R^2 increase from .3309 to .4084 is not significant, p = .2748.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="comparing-adjusted-means-across-groups" class="level3">
 <h3 class="anchored" data-anchor-id="comparing-adjusted-means-across-groups">Comparing adjusted means across groups</h3>
-<p>To calculate the adjusted means for each group (also known as conditional means), this can be done using the model estimates and the equations listed in the main text.</p>
-<p>The mean of the continuous covariate (age) is also needed to calculate the adjusted means.</p>
+<p>The <code>emmeans()</code> function of the <code>emmeans</code> package can calculate adjusted means from an ANCOVA model automatically (“emmeans” stands for “expected marginal means”). Recall from the text that adjusted means are the predicted values of the outcome variable for each level of a categorical independent variable, with a covariate held constant at its mean value. The first argument of the <code>emmeans()</code> function is the name of the ANCOVA model as fitted with <code>lm()</code>, and the second argument is ~ followed by the name of the factor-type, categorical independent variable.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Obtain mean of age variable</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(married<span class="sc">$</span>age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  39.00   50.75   55.00   54.92   60.00   74.00 </code></pre>
-</div>
-</div>
-<p>The emmeans function can calculate these automatically. The first argument is the <code>lm()</code> object name, and the second argument is ~ and then the name of the predictor for which you want to calculate the adjusted means.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Welcome to emmeans.
 Caution: You lose important information if you filter this package&#39;s results.
 See &#39;? untidy&#39;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(ancovaMod, <span class="sc">~</span>mstatus, )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(ancovaMod, <span class="sc">~</span>mstatus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> mstatus  emmean   SE df lower.CL upper.CL
  married    83.0 1.75 31     79.5     86.6
@@ -2486,31 +2536,7 @@ See &#39;? untidy&#39;</code></pre>
 
 Confidence level used: 0.95 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#By default, it calculates adjusted means at the mean level of age. Notice how when we specify the mean age, we get the same results.</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(ancovaMod, <span class="sc">~</span>mstatus, <span class="at">at =</span> <span class="fu">list</span>(<span class="at">age =</span> <span class="fl">54.92</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> mstatus  emmean   SE df lower.CL upper.CL
- married    83.0 1.75 31     79.5     86.6
- divorced   79.2 1.93 31     75.3     83.1
- single     81.2 1.93 31     77.2     85.1
- widowed    78.3 1.96 31     74.3     82.3
-
-Confidence level used: 0.95 </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You can calculate the predicted satisfaction level of each group at a different mean age to compare. For example, using the minimum age of 39</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(ancovaMod, <span class="sc">~</span>mstatus, <span class="at">at =</span> <span class="fu">list</span>(<span class="at">age =</span> <span class="dv">39</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> mstatus  emmean   SE df lower.CL upper.CL
- married    74.2 3.08 31     67.9     80.5
- divorced   70.4 3.47 31     63.3     77.4
- single     72.4 2.52 31     67.2     77.5
- widowed    69.5 2.86 31     63.7     75.3
-
-Confidence level used: 0.95 </code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The values listed under the &quot;emmean&quot; column correspond to the adjusted means reported in the text.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -2519,12 +2545,12 @@ Confidence level used: 0.95 </code></pre>
 <section id="figure-3.2-scatterplot-of-studentized-residuals-by-age" class="level3">
 <h3 class="anchored" data-anchor-id="figure-3.2-scatterplot-of-studentized-residuals-by-age">Figure 3.2: Scatterplot of Studentized Residuals by Age</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: carData</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot</span>(<span class="fu">rstudent</span>(ancovaMod)<span class="sc">~</span>married<span class="sc">$</span>age, <span class="at">ylab=</span><span class="st">&#39;Studentized residuals&#39;</span>, </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">xlab=</span><span class="st">&#39;Age&#39;</span>, <span class="at">boxplot=</span>F, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">smooth=</span><span class="fu">list</span>(<span class="at">var=</span>F, <span class="at">span=</span><span class="fl">1.0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot</span>(<span class="fu">rstudent</span>(ancovaMod)<span class="sc">~</span>married<span class="sc">$</span>age, <span class="at">ylab=</span><span class="st">&#39;Studentized residuals&#39;</span>, </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">xlab=</span><span class="st">&#39;Age&#39;</span>, <span class="at">boxplot=</span>F, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">smooth=</span><span class="fu">list</span>(<span class="at">var=</span>F, <span class="at">span=</span><span class="fl">1.0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2537,7 +2563,7 @@ Confidence level used: 0.95 </code></pre>
 <section id="figure-3.3-boxplot-of-studentized-residuals-by-marital-status" class="level3">
 <h3 class="anchored" data-anchor-id="figure-3.3-boxplot-of-studentized-residuals-by-marital-status">Figure 3.3: Boxplot of Studentized Residuals by Marital Status</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">rstudent</span>(ancovaMod)<span class="sc">~</span>married<span class="sc">$</span>mstatus, <span class="at">ylab=</span><span class="st">&#39;Studentized residuals&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;marital status&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">rstudent</span>(ancovaMod)<span class="sc">~</span>married<span class="sc">$</span>mstatus, <span class="at">ylab=</span><span class="st">&#39;Studentized residuals&#39;</span>, <span class="at">xlab=</span><span class="st">&#39;marital status&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2549,9 +2575,8 @@ Confidence level used: 0.95 </code></pre>
 </section>
 <section id="figure-3.4-q-q-plot-of-model" class="level3">
 <h3 class="anchored" data-anchor-id="figure-3.4-q-q-plot-of-model">Figure 3.4: Q-Q Plot of Model</h3>
-<p>NOTE FOR DAVE - this code wasn’t in my .R script for some reason. Can you double check that this is what you wanted for this plot?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(ancovaMod, <span class="at">envelope =</span> F, <span class="at">ylab =</span> <span class="st">&quot;Studentized residuals&quot;</span>, <span class="at">grid=</span>F, <span class="at">id=</span>F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(ancovaMod, <span class="at">envelope =</span> F, <span class="at">ylab =</span> <span class="st">&quot;Studentized residuals&quot;</span>, <span class="at">grid=</span>F, <span class="at">id=</span>F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2559,6 +2584,139 @@ Confidence level used: 0.95 </code></pre>
 </figure>
 </div>
 </div>
+</div>
+</section>
+</section>
+<section id="using-contrast-code-variables" class="level2">
+<h2 class="anchored" data-anchor-id="using-contrast-code-variables">Using Contrast-Code Variables</h2>
+<p>The following material accompanies the supplementary text for this chapter.</p>
+<section id="creating-helmert-contrasts" class="level3">
+<h3 class="anchored" data-anchor-id="creating-helmert-contrasts">Creating Helmert contrasts</h3>
+<p>As described above, by default R will represent a factor-type variable using a set of dummy variables. We can use the <code>contrasts()</code> function to see that the <code>mstatus</code> variable is currently represented as a set of three dummy variables with “married” as the reference category:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(married<span class="sc">$</span>mstatus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         divorced single widowed
+married         0      0       0
+divorced        1      0       0
+single          0      1       0
+widowed         0      0       1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Notice how this table corresponds to the table of dummy variable values in Table 3.2 of the text.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>But we can specify an alternative set of contrasts using the <code>matrix()</code> function. Here, we create a matrix called <code>helmerts</code> which contains the contrast-code values given in Table S3.1 in the supplementary text. Because we need to create three contrasts, the matrix has three columns (<code>ncol=3</code>). Then, we assign this new <code>helmerts</code> matrix to the contrasts representing <code>mstatus</code>, thereby overriding the dummy variables:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>helmerts <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,  <span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>,  <span class="dv">0</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">0</span>,   <span class="dv">1</span>,  <span class="dv">0</span>,<span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(married<span class="sc">$</span>mstatus) <span class="ot">&lt;-</span> helmerts</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co">#check what the contrasts look like now:</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(married<span class="sc">$</span>mstatus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               [,1] [,2] [,3]
+married  -0.3333333  1.0    0
+divorced -0.3333333 -0.5    1
+single    1.0000000  0.0    0
+widowed  -0.3333333 -0.5   -1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The first column corresponds to the &quot;C1&quot; variable in the supplementary text (single vs. others)</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#The 2nd column corresponds to the &quot;C2&quot; variable (married vs. divorced and widowed)</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co">#The 3rd column corresponds to the &quot;C3&quot; variable (divorced vs. widowed)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now, when we regress the <code>satis</code> outcome on <code>mstatus</code>, we get results based on these contrasts instead of dummy variables:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mod.helm <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> mstatus, <span class="at">data=</span>married)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod.helm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = satis ~ mstatus, data = married)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.3750  -3.8889   0.3778   3.7167   9.6250 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   80.377      1.091  73.676   &lt;2e-16 ***
+mstatus1      -1.488      1.886  -0.789    0.436    
+mstatus2       2.927      1.735   1.687    0.101    
+mstatus3       2.035      1.585   1.283    0.209    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 6.525 on 32 degrees of freedom
+Multiple R-squared:  0.1381,    Adjusted R-squared:  0.05728 
+F-statistic: 1.709 on 3 and 32 DF,  p-value: 0.1849</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod.helm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %    97.5 %
+(Intercept) 78.154871 82.599295
+mstatus1    -5.329201  2.352813
+mstatus2    -0.606843  6.460547
+mstatus3    -1.194605  5.264049</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Notice how the results match those in supplementary Table S3.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="improved-contrasts" class="level3">
+<h3 class="anchored" data-anchor-id="improved-contrasts">Improved contrasts</h3>
+<p>Next, we can change the contrasts to match the ‘improved contrasts’ represented in Table S3.3:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>helmert2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>,<span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>,</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,  <span class="dv">0</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">0</span>,    .<span class="dv">5</span>,  <span class="dv">0</span>,<span class="sc">-</span>.<span class="dv">5</span>),</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(married<span class="sc">$</span>mstatus) <span class="ot">&lt;-</span> helmert2</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co">#check what the contrasts look like now:</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(married<span class="sc">$</span>mstatus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1]       [,2] [,3]
+married  -0.25  0.6666667  0.0
+divorced -0.25 -0.3333333  0.5
+single    0.75  0.0000000  0.0
+widowed  -0.25 -0.3333333 -0.5</code></pre>
+</div>
+</div>
+<p>And then fit the model again:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>mod.helm <span class="ot">&lt;-</span> <span class="fu">lm</span>(satis <span class="sc">~</span> mstatus, <span class="at">data=</span>married)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod.helm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = satis ~ mstatus, data = married)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-17.3750  -3.8889   0.3778   3.7167   9.6250 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   80.377      1.091  73.676   &lt;2e-16 ***
+mstatus1      -1.984      2.514  -0.789    0.436    
+mstatus2       4.390      2.602   1.687    0.101    
+mstatus3       4.069      3.171   1.283    0.209    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 6.525 on 32 degrees of freedom
+Multiple R-squared:  0.1381,    Adjusted R-squared:  0.05728 
+F-statistic: 1.709 on 3 and 32 DF,  p-value: 0.1849</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod.helm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %    97.5 %
+(Intercept) 78.1548713 82.599295
+mstatus1    -7.1056020  3.137083
+mstatus2    -0.9102645  9.690820
+mstatus3    -2.3892096 10.528098</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Now the results match those in supplementary Table S3.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
