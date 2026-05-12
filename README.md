@@ -13,5 +13,3 @@
 - Chapter 10: Structural Equation Modelling II: Structural Regression Models
 - Chapter 11: Estimating Models with Missing Data
 - Chapter 12: Modelling Longitudinal Data
-
-### *Website Material Coming Soon*
